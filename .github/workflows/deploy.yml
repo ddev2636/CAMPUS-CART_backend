@@ -3,7 +3,7 @@ name: CD Pipeline
 on:
   push:
     branches:
-      - master # Adjust to your branch name
+      - main # Adjust to your branch name
 
 jobs:
   build-and-deploy:
