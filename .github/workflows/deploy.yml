@@ -42,3 +42,20 @@ jobs:
           file: ./productService/Dockerfile
           push: true
           tags: ddev2636/campus-cart:product-service
+
+      - name: SSH into EC2 and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          script: |
+            # Ensure Docker is running
+            sudo systemctl start docker
+            sudo systemctl enable docker
+
+            cd /home/ubuntu/campuscart
+            sudo docker-compose -f docker-compose.prod.yml down  # Stop and remove current containers
+            sudo docker system prune -a -f  # Clean up unused Docker objects
+            sudo docker-compose -f docker-compose.prod.yml pull  # Pull latest images
+            sudo docker-compose -f docker-compose.prod.yml up -d  # Start new containers
