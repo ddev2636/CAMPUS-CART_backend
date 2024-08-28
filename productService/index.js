@@ -30,6 +30,16 @@ app.use(cors());
 
 app.use("/api/v1/item", thingRouter);
 app.use("/api/v1/stripe", stripeRouter);
+app.get("/lodu1", (req, res) => {
+  res.json({
+    message: "Hello, World!",
+    status: "success",
+    data: {
+      key1: "value1",
+      key2: "value2",
+    },
+  });
+});
 
 app.use(notFoundMiddlware);
 app.use(errorHandlerMiddleware);
