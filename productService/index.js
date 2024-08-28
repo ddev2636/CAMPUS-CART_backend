@@ -30,7 +30,7 @@ app.use(cors());
 
 app.use("/api/v1/item", thingRouter);
 app.use("/api/v1/stripe", stripeRouter);
-app.get("/lodu1", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     message: "Hello, World!",
     status: "success",
