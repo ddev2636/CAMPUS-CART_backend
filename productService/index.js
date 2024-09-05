@@ -29,7 +29,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://campus-cart-frontend.vercel.app",
+    ],
     credentials: true,
   })
 );
