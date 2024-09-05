@@ -22,7 +22,7 @@ const register = async (req, res) => {
   const options = {
     expires: new Date(Date.now() + 8 * 60 * 60 * 1000),
     httpOnly: true,
-    sameSite: "none", //blunder
+    //sameSite: "none", //blunder
   };
   res.cookie("token", token, options);
   res.status(StatusCodes.CREATED).json({ user });
@@ -51,7 +51,7 @@ const login = async (req, res) => {
   const options = {
     expires: new Date(Date.now() + 8 * 60 * 60 * 1000),
     httpOnly: true,
-    sameSite: "none", //blunder
+    //sameSite: "none", //blunder
   };
   res.cookie("token", token, options);
   //
