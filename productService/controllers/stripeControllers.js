@@ -22,10 +22,10 @@ export const stripeController = async (req, res) => {
           quantity: "1",
         };
       }),
-      success_url: "http://localhost:3000/",
-      cancel_url: "http://localhost:3000/",
-      // success_url: `${process.env.CLIENT_URL}`,
-      // cancel_url: `${process.env.CLIENT_URL}`,
+      // success_url: "http://localhost:3000/",
+      // cancel_url: "http://localhost:3000/",
+      success_url: `${process.env.CLIENT_URL}`,
+      cancel_url: `${process.env.CLIENT_URL}`,
     });
 
     res.json({ url: session.url });

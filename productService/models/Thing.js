@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
-
+// import User from "../../authService/models/User.js";
 const ThingSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // This refers to the User model
+    required: true,
+  },
   picture: {
     type: String,
     required: true,
   },
-
   name: {
     type: String,
     required: true,

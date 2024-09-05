@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import cors from "cors";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
 
 //importing middlewares
 import notFoundMiddlware from "./middleware/notFound.js";
@@ -20,19 +21,24 @@ import stripeRouter from "./Routes/stripeRoutes.js";
 
 //inbuile middleware
 app.use(express.json());
-
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 app.use("/api/v1/item", thingRouter);
 app.use("/api/v1/stripe", stripeRouter);
 app.get("/", (req, res) => {
   res.json({
-    message: "Hello, World!",
+    message: "Hello, World! 5000",
     status: "success",
     data: {
       key1: "value1",

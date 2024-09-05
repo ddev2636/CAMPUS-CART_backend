@@ -5,13 +5,24 @@ import path from "path";
 
 const sellThing = async (req, res) => {
   const { name, price, desc, contact, category, picture } = req.body;
+  const userId = req.user.userId;
+  console.log("userId print karwaya", userId);
 
   console.log(req.body);
   if (!name || !price || !desc || !contact || !picture || !category) {
     throw new BadRequestError("please provide all value");
   }
 
-  const thing = new Thing({ picture, name, price, desc, category, contact });
+  const thing = new Thing({
+    user: userId,
+    picture,
+    name,
+    price,
+    desc,
+    category,
+    contact,
+  });
+  console.log(thing);
   const savedthing = await thing.save();
   res.status(StatusCodes.CREATED).json(savedthing);
 };
