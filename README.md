@@ -1,21 +1,21 @@
 ## Commonly Used vi Commands
 
 ## Modes in vi
-# Insert Mode: Allows you to type text.
+## Insert Mode: Allows you to type text.
 "i": Enter insert mode before the cursor.
 
 Esc: Exit insert mode and return to normal (command) mode. 
 
-# Saving and Exiting
+## Saving and Exiting
 ":w": Save the file.
 ":q": Quit vi.
 ":wq": Save and quit.
 ":q!": Quit without saving.
 
 
-## AWS Deployment Guide (EC2)
+# AWS Deployment Guide (EC2)
 
-# 1. Set SSH Key Permissions
+##  Set SSH Key Permissions
 
 Before connecting to your EC2 instance, you need to set the appropriate permissions for your SSH key:
 
@@ -27,19 +27,19 @@ chmod 700 [key-pair].pem
 ssh -i [key-pair].pem ubuntu@[public-dns-ec2-instance]
 ```
 
-# 2. Clone github-repo
+##  Clone github-repo
 ```bash
 git clone [github-repo]
 ```
 
-# 3. Install Node and npm
+##  Install Node and npm
 ```bash
 sudo apt update
 sudo apt install nodejs
 sudo apt install npm
 ```
 
-# 4. Put env
+## 4. Put env
 ```bash
 touch .env
 vi .env
