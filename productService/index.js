@@ -41,7 +41,7 @@ app.use("/api/v1/item", thingRouter);
 app.use("/api/v1/stripe", stripeRouter);
 app.get("/", (req, res) => {
   res.json({
-    message: "Hello, World! 5000",
+    message: "Hello, World! 5000 from me",
     status: "success",
     data: {
       key1: "value1",

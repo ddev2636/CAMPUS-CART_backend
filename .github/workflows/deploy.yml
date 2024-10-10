@@ -54,7 +54,7 @@ jobs:
             sudo systemctl start docker
             sudo systemctl enable docker
 
-            cd /home/ubuntu/campuscart
+            cd /home/ubuntu/campus-cart-backend
             sudo docker-compose -f docker-compose.prod.yml down  # Stop and remove current containers
             sudo docker system prune -a -f  # Clean up unused Docker objects
             sudo docker-compose -f docker-compose.prod.yml pull  # Pull latest images
